@@ -4,8 +4,8 @@
   "description": "",
   "main": "express-server",
   "scripts": {
-    "start": "node express-server.js",
-    "backend": "nodemon express-server.js"
+    "starte": "node express-server.js",
+    "backende": "nodemon express-server.js"
   },
   "keywords": [],
   "author": "",
