@@ -23,7 +23,7 @@ const getTasks = async (req, res) => {
 // Get a single task
 const getTask = async (req, res) => {
     try {
-        const { id } = req.params; // Fix the typo here: req.params instead of res.params
+        const { id } = req.params; 
         const task = await Task.findById(id);
         if(!task){
             return res.status(404).json(`No task was found with the id:${id}`)
@@ -33,9 +33,20 @@ const getTask = async (req, res) => {
         res.status(500).json({ msg: error.message });
     }
 };
+// Delete Task
+const deleteTask = async(req,res)=>{
+    const {id} = req.params
+    const task = await Task.findByIdAndDelete()
+    if(!task){
+        return res.status(404).json(`No task was found with the id:${id}`)
+    }
+    res.status(200).send("Task Deleted")
+    res.status(500).json({ msg: error.message });
 
+}
 module.exports = {
     createTask,
     getTasks,
     getTask,
+    deleteTask,
 };
