@@ -4,14 +4,18 @@ const connectDB = require("./config/connectDB");
 const mongoose = require("mongoose");
 const Task = require("./model/taskModel");
 const taskRoutes = require("./routes/taskRoute")
+const cors = require("cors")
 
 
 const app = express();
 //middleware
 
-app.use(express.json())
-app.use(express.urlencoded({extended:false}))
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));
+app.use(cors());
+
 app.use("/api/tasks", taskRoutes);
+
 
 //const logger = (req, res, next)=>{
   //  console.log("midddleware ran");
